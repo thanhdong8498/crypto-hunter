@@ -8,8 +8,8 @@ import { onSnapshot, doc } from "firebase/firestore";
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
-    const [currency, setCurrency] = useState("USD");
-    const [symbol, setSymbol] = useState("$");
+    const [currency, setCurrency] = useState("VND");
+    const [symbol, setSymbol] = useState("đ");
     const [alert, setAlert] = useState({
         open: false,
         message: "",
@@ -54,8 +54,8 @@ const CryptoContext = ({ children }) => {
     };
 
     useEffect(() => {
-        if (currency === "INR") setSymbol("₹");
-        else if (currency === "USD") setSymbol("$");
+        if (currency === "USD") setSymbol("$");
+        else if (currency === "VND") setSymbol("đ");
 
         fetchCoins();
         // eslint-disable-next-line react-hooks/exhaustive-deps
